@@ -1,8 +1,19 @@
 import React from 'react'
+import Header from '@components/Header'
+import ChatContainer from '@components/ChatContainer'
+import ChatCard from '@components/ChatCard'
 
 const Home = () => {
   return (
-    <h1>Home</h1>
+    <div className='home-container'>
+      <Header/>
+      <ChatContainer>
+        <ChatCard/>
+        <ChatCard/>
+        <ChatCard/>
+        <ChatCard/>
+      </ChatContainer>
+    </div>
   )
 }
 

@@ -1,0 +1,29 @@
+@use 'variables' as *;
+@use 'mixins' as *;
+
+.card {
+  cursor: pointer;
+  width: 100%;
+  height: 85px;
+  border-bottom: 1px solid rgba($color: $primary-text-color, $alpha: 0.1);
+  @include flexCenter(row, space-between, center);
+  .profile-container {
+    width: 300px;
+    height: 100%;
+    @include flexCenter(row, flex-start, center);
+    &__image {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+    &__title {
+      @include titleStyle(1.7rem, left, 1px, $primary-text-color);
+      padding-left: 20px;
+    }
+  }
+  .connection {
+    font-size: 1.2rem;
+    color: rgba($color: $primary-text-color, $alpha: 0.6);
+  }
+}

@@ -1,0 +1,11 @@
+@use 'variables' as *;
+@use 'mixins' as *;
+
+.wrapper {
+  @include containerStyle(100%, 703px, 10px, 15px);
+  position: relative;
+  .cards-container {
+    width: 100%;
+    height: auto;
+  }
+}

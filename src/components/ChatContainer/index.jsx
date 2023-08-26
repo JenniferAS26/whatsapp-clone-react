@@ -1,8 +1,13 @@
 import React from 'react'
+import './styles.scss'
 
-const ChatContainer = () => {
+const ChatContainer = ({ children }) => {
   return (
-    <h1>Chat container</h1>
+    <div class="wrapper">
+      <div className="cards-container">
+        {children}
+      </div>
+    </div>
   )
 }
 
