@@ -4,9 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "webpack serve --config webpack.config.dev.js",
-    "build": "webpack serve --config webpack.config.js"
+    "start": "webpack serve --open --mode development --config webpack.config.dev.js",
+    "build": "webpack --mode production --config webpack.config.js"
   },
   "repository": {
     "type": "git",
@@ -30,6 +29,10 @@
     "css-loader": "^6.8.1",
     "css-minimizer-webpack-plugin": "^5.0.1",
     "dotenv-webpack": "^8.0.1",
+    "eslint": "^8.48.0",
+    "eslint-plugin-hooks": "^0.4.3",
+    "eslint-plugin-react": "^7.33.2",
+    "eslint-plugin-react-refresh": "^0.4.3",
     "html-loader": "^4.2.0",
     "html-webpack-plugin": "^5.5.3",
     "mini-css-extract-plugin": "^2.7.6",
@@ -44,6 +47,7 @@
   },
   "dependencies": {
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "react-router-dom": "^6.15.0"
   }
 }

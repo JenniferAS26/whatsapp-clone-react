@@ -13,17 +13,16 @@ module.exports = {
   mode: 'development',
   resolve: {
     extensions: ['.js', '.jsx'],
-    // alias: {
-    //   '@templates': path.resolve(__dirname, 'src/templates'),
-    //   '@styles': path.resolve(__dirname, 'src/styles'),
-    //   '@images': path.resolve(__dirname, 'src/assets/images'),
-    //   '@utils': path.resolve(__dirname, 'src/utils')
-    // }
+    alias: {
+      '@components': path.resolve(__dirname, 'src/components'),
+      '@pages': path.resolve(__dirname, 'src/pages'),
+      '@styles': path.resolve(__dirname, 'src/styles')
+    }
   },
   module: {
     rules: [
       {
-        test: /\.(js|jsx)$/, 
+        test: /\.m?(js|jsx)$/, 
         exclude: /node_modules/,
         use: {
           loader: 'babel-loader'
@@ -69,6 +68,7 @@ module.exports = {
   ],
   devServer: {
     static: path.join(__dirname, 'dist'),
+    historyApiFallback: true,
     compress: true,
     port: 3005
   }
