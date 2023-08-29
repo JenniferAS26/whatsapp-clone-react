@@ -1,5 +1,5 @@
 import React from 'react'
-import './styles.scss'
+import { Link } from 'react-router-dom'
 import backIcon from '@icons/back.png'
 import verticalMenu from '@icons/menu-vertical.png'
 import profilePicture from '@images/profile-pic2.jpg'
@@ -8,23 +8,24 @@ import carousel2 from '@images/image2.jpg'
 import carousel3 from '@images/image3.jpg'
 import carousel4 from '@images/image4.jpg'
 import carousel5 from '@images/image5.jpg'
-import { FaPhoneAlt } from 'react-icons/fa';
-import { FaVideo } from 'react-icons/fa';
-import { ImSearch } from "react-icons/Im";
-import { FaChevronRight } from "react-icons/fa";
-import { FaBell } from "react-icons/fa";
-import { FaFire } from "react-icons/fa";
-import { ImImage } from "react-icons/Im";
-import { FaStar } from "react-icons/fa";
-import { FaTrashAlt } from "react-icons/fa";
-import { PiClockCountdownFill } from "react-icons/pi";
-import { FaLockOpen } from "react-icons/fa";
+import { FaPhoneAlt } from 'react-icons/fa'
+import { FaVideo } from 'react-icons/fa'
+import { ImSearch } from 'react-icons/Im'
+import { FaChevronRight } from 'react-icons/fa'
+import { FaBell } from 'react-icons/fa'
+import { FaFire } from 'react-icons/fa'
+import { ImImage } from 'react-icons/Im'
+import { FaStar } from 'react-icons/fa'
+import { FaTrashAlt } from 'react-icons/fa'
+import { PiClockCountdownFill } from 'react-icons/pi'
+import { FaLockOpen } from 'react-icons/fa'
+import './styles.scss'
 
 const ContactInformation = () => {
   return (
     <section className='contact-info-container'>
       <div className="contact-info-container__top">
-        <img className="arrow-back-icon" src={backIcon} alt="back arrow icon"/>
+        <Link to='/chat'><img className="arrow-back-icon" src={backIcon} alt="back arrow icon"/></Link>
         <div className="contact-info-container__top--info contact">
           <img className="contact__photo" src={profilePicture} alt="profile picture"/>
           <h3 className="contact__name">Jane Doe</h3>
@@ -50,7 +51,9 @@ const ContactInformation = () => {
             </div>
           </div>
         </div>
-        <img className="contact-menu-icon" src={verticalMenu} alt="menu icon"/>
+        <Link to='/edit-contact'>
+          <img className="contact-menu-icon" src={verticalMenu} alt="menu icon"/>
+        </Link>
       </div>
       <div className="contact-info-container__media-links-docs">
         <div className="contact-info-container__media-links-docs--top">

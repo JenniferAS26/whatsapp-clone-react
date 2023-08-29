@@ -3,13 +3,12 @@
 
 $links-color: rgb(101, 202, 241);
 
-.wrapper {
+.wrapper-signin {
   @include containerStyle(100%, 100%, 40px, 25px);
   .auth-container {
     width: 100%;
     height: 100%;
     display: grid;
-    // display: none;
     grid-template-rows: 70px 1fr;
     position: relative;
     &__title {
@@ -71,4 +70,8 @@ input[type="number"] {
   &:focus::-webkit-inner-spin-button, &:hover::-webkit-inner-spin-button {
     display: none; /* para retirar el scroll */
   }
+}
+
+.link {
+  color: $primary-color;
 }

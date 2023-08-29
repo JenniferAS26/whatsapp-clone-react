@@ -3,7 +3,7 @@ import './styles.scss'
 
 const ChatContainer = ({ children }) => {
   return (
-    <div class="wrapper">
+    <div className="wrapper">
       <div className="cards-container">
         {children}
       </div>

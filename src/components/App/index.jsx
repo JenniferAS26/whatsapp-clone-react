@@ -27,6 +27,11 @@ const App = () => {
     <React.StrictMode>
       <BrowserRouter>
         <AppRoutes/>
+        {/* {openModal && (
+          <Modal>
+            editar contact
+          </Modal>
+        )} */}
       </BrowserRouter>
     </React.StrictMode>  
   )

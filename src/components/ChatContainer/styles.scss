@@ -6,6 +6,10 @@
   position: relative;
   .cards-container {
     width: 100%;
-    height: auto;
+    height: 100%;
+    overflow-y: scroll;
+    &::-webkit-scrollbar {
+      display: none;
+    }
   }
 }
