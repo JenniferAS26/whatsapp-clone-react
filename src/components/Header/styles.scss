@@ -35,3 +35,34 @@
     }
   }
 }
+
+.dropdown {
+  width: 30px !important;
+}
+.btn-success {
+  background-color: transparent !important;
+  border: none !important;
+  position: relative !important;
+}
+
+.dropdown-menu.show {
+  display: grid !important;
+}
+
+.dropdown-menu {
+  background-color: $secondary-color !important;
+  width: 150px !important;
+  height: 180px;
+  .dropdown-item {
+    color: $light-color;
+    font-size: 1.4rem !important;
+    font-family: $font-source !important;
+    letter-spacing: 1px !important;
+  }
+}
+
+
+/* remove v icon */
+.dropdown-toggle::after {
+  content: none !important;
+}

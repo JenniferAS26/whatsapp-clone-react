@@ -1,8 +1,9 @@
 import React from 'react'
-import './styles.scss'
+import Dropdown from 'react-bootstrap/Dropdown'
 import verticalMenu from '@icons/menu-vertical.png'
 import searchIcon from '@icons/search.png'
 import cameraIcon from '@icons/camera.png'
+import './styles.scss'
 
 const Header = () => {
   return (
@@ -11,7 +12,19 @@ const Header = () => {
         <h4 className="title">WhatsApp</h4>
         <div className="icons">
           <img src={searchIcon} alt="search icon"/>
-          <img className="home-menu-icon" src={verticalMenu}/>
+          <Dropdown>
+            <Dropdown.Toggle variant='success'>
+              <img className="home-menu-icon" src={verticalMenu}/>
+            </Dropdown.Toggle>
+
+            <Dropdown.Menu>
+              <Dropdown.Item>New group</Dropdown.Item>
+              <Dropdown.Item>New broadcast</Dropdown.Item>
+              <Dropdown.Item>Linked devices</Dropdown.Item>
+              <Dropdown.Item>Starred messages</Dropdown.Item>
+              <Dropdown.Item>Settings</Dropdown.Item>
+            </Dropdown.Menu>
+          </Dropdown>
         </div>
       </div>
       <div className="header__bottom home-header">

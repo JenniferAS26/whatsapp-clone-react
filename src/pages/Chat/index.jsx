@@ -1,5 +1,6 @@
 import React, {  useState } from 'react'
 import { Link } from 'react-router-dom'
+import Dropdown from 'react-bootstrap/Dropdown'
 import wallpaper from '@images/wallpaper.png'
 import profilePicture from '@images/profile-pic2.jpg'
 import smileyFace from '@icons/smiley-face.png'
@@ -34,15 +35,29 @@ const Chat = () => {
         <Link to='/home'><img className="arrow-back" src={backArrow} alt="arrow icon"/></Link>
         <div className="contact-info" id=''>
           <img src={profilePicture} alt="profile picture" />
-          <p className="username">Jane Doe</p>
+          <Link className='Link-style' to='/contact-info'>
+            <p className="username">Jane Doe</p>
+          </Link>
       </div>
       </div>
       <div className="chats-container__header--right">
         <img src={videoCamera} alt="video camera icon"/>
         <img src={phone} alt="telephone icon"/>
-        <Link to='/contact-info'>
-          <img className="chat-menu-icon" src={menu} alt="menu icon"/>
-        </Link>
+        <Dropdown>
+          <Dropdown.Toggle variant='success'>
+            <img className="chat-menu-icon" src={menu} alt="menu icon"/>
+          </Dropdown.Toggle>
+
+          <Dropdown.Menu>
+            <Dropdown.Item>
+              <Link className='Link-style' to='/contact-info'>View contact</Link>
+            </Dropdown.Item>
+            <Dropdown.Item>New broadcast</Dropdown.Item>
+            <Dropdown.Item>Linked devices</Dropdown.Item>
+            <Dropdown.Item>Starred messages</Dropdown.Item>
+            <Dropdown.Item>Settings</Dropdown.Item>
+          </Dropdown.Menu>
+        </Dropdown>
       </div>
     </div>
     <div className="chats-container__main">

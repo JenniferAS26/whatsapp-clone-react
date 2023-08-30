@@ -1,5 +1,6 @@
 import React from 'react'
 import { BrowserRouter, useRoutes } from 'react-router-dom'
+import { userProvider } from '../../Context'
 import WelcomenView from '@pages/WelcomeView'
 import SigninForm from '@pages/SigninForm'
 import SignupForm from '@pages/SignupForm'
