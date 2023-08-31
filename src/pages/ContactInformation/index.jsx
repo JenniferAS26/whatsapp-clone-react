@@ -1,6 +1,6 @@
 import React from 'react'
 import { useLocation, useNavigate } from 'react-router-dom'
-import { deleteData } from '@services/api.js'
+import { deleteData } from '@utils/api.js'
 import Swal from 'sweetalert2'
 import Dropdown from 'react-bootstrap/Dropdown'
 import backIcon from '@icons/back.png'

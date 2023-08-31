@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link, useNavigate, useLocation, useParams } from 'react-router-dom'
 import { useForm } from 'react-hook-form'
-import { updateData } from '../../services/api.js'
+import { updateData } from '@utils/api.js'
 import backIcon from '@icons/back.png'
 import { FaUser, FaPhoneAlt } from 'react-icons/fa'
 import './styles.scss'
