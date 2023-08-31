@@ -1,7 +1,8 @@
 import React, { useState } from 'react'
 import { useForm } from 'react-hook-form'
-import { Link } from 'react-router-dom'
-import { createData, saveImage } from '@services/api.js'
+import { Link, useNavigate } from 'react-router-dom'
+import { createData, getDataByQueryParams, saveImage } from '@services/api.js'
+import Swal from 'sweetalert2'
 import silhouette from '@images/user-silhouette.jpg'
 import { FaChevronLeft } from 'react-icons/fa'
 import './styles.scss'
@@ -9,6 +10,8 @@ import './styles.scss'
 const SignupForm = () => {
   const { register, handleSubmit } = useForm()
   const [imagePreview, setImagePreview] = useState(silhouette)
+
+  const navigate = useNavigate()
 
   const handleImageChange = event => {
     const chosenImage = event.target.files[0]
@@ -24,17 +27,47 @@ const SignupForm = () => {
   }
 
   const onSubmit = async userInfo => {
+    const userVerified = await getDataByQueryParams('users', { cellphone_number: userInfo.cellphone_number })
+    
     const file = userInfo.url_image[0]
     const imageUrl = await saveImage(file)
-    const user = {
-      name: userInfo.name,
-      cellphone_number: userInfo.cellphone_number,
-      password: userInfo.password,
-      url_image: imageUrl,
-      quote: userInfo.quote,
-      date: Date()
+
+    if (userVerified[0]?.cellphone_number === userInfo.cellphone_number) {
+      Swal.fire({
+        title: 'User already exists',
+        confirmButtonText: 'Ok',
+        reverseButtons: true,
+        "customClass": {
+            button: 'custom-button',
+            htmlContainer: 'custom-container'
+        },
+      })
+    } else {
+      const user = {
+        name: userInfo.name,
+        cellphone_number: userInfo.cellphone_number,
+        password: userInfo.password,
+        url_image: imageUrl,
+        quote: userInfo.quote,
+        date: Date()
+      }
+      await createData('users', user)
+      const userConfirmDeletion = await Swal.fire({
+        title: 'Account created successfully',
+        confirmButtonText: 'Ok',
+        reverseButtons: true,
+        "customClass": {
+            button: 'custom-button',
+            htmlContainer: 'custom-container'
+        },
+      })
+      if (userConfirmDeletion.isConfirmed) {
+        navigate('/sign-in')
+        window.location.reload()
+      }
     }
-    createData('users', user)
+    
+    
   }
   return (
     <div className="wrapper-signup">

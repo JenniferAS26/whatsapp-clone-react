@@ -23,7 +23,7 @@ $message-text-color: #707980;
       .contact-info {
         cursor: pointer;
         @include flexCenter(row, flex-start, center);
-        width: 180px;
+        width: 190px;
         img {
           width: 32px;
           height: 32px;
@@ -31,8 +31,10 @@ $message-text-color: #707980;
           object-fit: cover;
         }
         .username {
+          display: block;
+          width: 100%;
           padding-left: 15px;
-          font-size: 2.1rem;
+          font-size: 1.8rem;
           color: $primary-text-color;
           margin: 0;
         }

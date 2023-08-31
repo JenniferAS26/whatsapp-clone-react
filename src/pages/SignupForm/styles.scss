@@ -2,6 +2,7 @@
 @use 'mixins' as *;
 
 $links-color: rgb(101, 202, 241);
+$modal-color: #363d42;
 
 .wrapper-signup {
   @include containerStyle(100%, 100%, 40px, 25px);
@@ -127,5 +128,38 @@ textarea {
   font-family: $font-source;
   &::placeholder {
     font-family: $font-source;
+  }
+}
+
+/* SweetAlert Styles */
+
+div:where(.swal2-container).swal2-center>.swal2-popup {
+  background-color: $modal-color !important;
+}
+
+div:where(.swal2-container) h2:where(.swal2-title) {
+  color: $light-color !important;
+  text-align: left !important;
+}
+
+div:where(.swal2-container) .swal2-html-container {
+  color: $primary-text-color !important;
+  text-align: left !important;
+}
+
+div:where(.swal2-container) div:where(.swal2-actions) {
+  width: 100% !important;
+  justify-content: flex-end !important;
+  padding: 0 20px !important;
+}
+
+div:where(.swal2-container) button:where(.swal2-styled).swal2-confirm {
+  background-color: transparent !important;
+  color: $tertiary-color !important;
+  font-size: 1.4rem !important;
+  font-weight: $bold-weight !important;
+  box-shadow: none !important;
+  &:hover {
+    background-color: transparent !important;
   }
 }

@@ -19,6 +19,15 @@ const readData = async (endpoint, id = '') => {
   }
 }
 
+const getDataByQueryParams = async (endpoint, params) => {
+  try {
+    const response = await axios.get(`${BASE_URL}/${endpoint}`, { params: params })
+    return response.data
+  } catch (error) {
+    console.log(error)
+  }
+}
+
 const updateData = async (endpoint, id, body) => {
   try {
     await axios.patch(`${BASE_URL}/${endpoint}/${id}`, body)
@@ -48,4 +57,4 @@ const saveImage = async file => {
   return response.data.url
 }
 
-export { createData, readData, updateData, deleteData, saveImage }
+export { createData, readData, getDataByQueryParams, updateData, deleteData, saveImage }

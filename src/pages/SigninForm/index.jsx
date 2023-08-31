@@ -1,15 +1,52 @@
 import React, { useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
+import { getDataByQueryParams } from '@services/api'
+import Swal from 'sweetalert2'
 import './styles.scss'
 
 const SigninForm = () => {
   const [phoneNumber, setPhoneNumber] = useState('')
   const [password, setPassword] = useState('')
 
-  const handleSubmit = event => {
+  const navigate = useNavigate()
+
+  const handleSubmit = async event => {
     event.preventDefault()
-    console.log(phoneNumber);
-    console.log(password);
+    const userData = await getDataByQueryParams('users', { cellphone_number: phoneNumber })
+    if (userData.length) {
+      if (userData[0].password === password) {
+        Swal.fire({
+          title: `Welcome back ${userData[0].name}`,
+          confirmButtonText: 'Ok',
+          reverseButtons: true,
+          "customClass": {
+              button: 'custom-button',
+              htmlContainer: 'custom-container'
+          },
+        })
+        navigate('/home')
+      } else {
+        Swal.fire({
+          title: 'Phone or passord wrong!',
+          confirmButtonText: 'Ok',
+          reverseButtons: true,
+          "customClass": {
+              button: 'custom-button',
+              htmlContainer: 'custom-container'
+          },
+        })
+      }
+    } else {
+      Swal.fire({
+        title: 'Phone or passord wrong, Try again!',
+        confirmButtonText: 'Ok',
+        reverseButtons: true,
+        "customClass": {
+            button: 'custom-button',
+            htmlContainer: 'custom-container'
+        },
+      })
+    }
   }
 
   return (
@@ -44,7 +81,8 @@ const SigninForm = () => {
               <div className='form__input--error error'></div>
             </div>
           </div>
-          <button className='form__button' type='submit'><Link to='/home' className='link'>next</Link></button>
+          {/* <button className='form__button' type='submit'><Link to='/home' className='link'>next</Link></button> */}
+          <button className='form__button' type='submit'>next</button>
         </form>
         <Link to='/sign-up'><span className='signup-redirect'>Sign up for free</span></Link>
       </div>

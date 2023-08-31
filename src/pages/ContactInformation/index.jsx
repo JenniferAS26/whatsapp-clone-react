@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react'
+import React from 'react'
 import { useLocation, useNavigate } from 'react-router-dom'
 import { deleteData } from '@services/api.js'
 import Swal from 'sweetalert2'
@@ -27,22 +27,6 @@ const ContactInformation = () => {
 
   const goToUpdateContact = (id) => {
     navigate(`/edit-contact/${id}`)
-  }
-
-  const deleteContactSweetAlert = async () => {
-    await Swal.fire({
-      title: 'Delete Account',
-      text: 'Are you sure you want to delete your account?',
-      icon: 'warning',
-      showCancelButton: true,
-      confirmButtonText: 'Yes, delete it!',
-      cancelButtonText: 'Cancel',
-      reverseButtons: true,
-      "customClass": {
-          button: 'custom-button',
-          htmlContainer: 'custom-container'
-      },
-    })
   }
 
   const deleteContact = async (id) => {
