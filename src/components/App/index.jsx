@@ -1,6 +1,6 @@
 import React from 'react'
 import { BrowserRouter, useRoutes } from 'react-router-dom'
-import { userProvider } from '../../Context'
+import { UserProvider } from '../../Context'
 import WelcomenView from '@pages/WelcomeView'
 import SigninForm from '@pages/SigninForm'
 import SignupForm from '@pages/SignupForm'
@@ -15,9 +15,9 @@ const AppRoutes = () => {
     { path: '/sign-in', element: <SigninForm/> },
     { path: '/sign-up', element: <SignupForm/> },
     { path: '/home', element: <Home/> },
-    { path: '/chat', element: <Chat/> },
-    { path: '/contact-info', element: <ContactInformation/> },
-    { path: '/edit-contact', element: <UpdateContactInformationForm/> },
+    { path: '/chat/:id', element: <Chat/> },
+    { path: '/contact-info/:id', element: <ContactInformation/> },
+    { path: '/edit-contact/:id', element: <UpdateContactInformationForm/> },
   ])
   return routes
 }
@@ -25,16 +25,11 @@ const AppRoutes = () => {
 
 const App = () => {
   return (
-    <React.StrictMode>
+    <UserProvider>
       <BrowserRouter>
         <AppRoutes/>
-        {/* {openModal && (
-          <Modal>
-            editar contact
-          </Modal>
-        )} */}
       </BrowserRouter>
-    </React.StrictMode>  
+    </UserProvider>  
   )
 }
 

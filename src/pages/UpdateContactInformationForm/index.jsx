@@ -1,15 +1,17 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import './styles.scss'
 import backIcon from '@icons/back.png'
 import { FaUser } from 'react-icons/fa'
 import { FaPhoneAlt } from 'react-icons/fa';
 
 const UpdateContactInformationForm = () => {
+  const navigation = useNavigate()
+
   return (
     <section className="edit-contact-container">
       <div className="edit-contact-container__header">
-        <Link to='/contact-info'><img className="edit-contact-container__header--back-icon" src={backIcon} alt="back"/></Link>
+        <Link to={navigation(-1)}><img className="edit-contact-container__header--back-icon" src={backIcon} alt="back"/></Link>
         <h2 className="edit-contact-container__header--title">Edit contact</h2>
       </div>
       <form className="edit-contact-container__form form">

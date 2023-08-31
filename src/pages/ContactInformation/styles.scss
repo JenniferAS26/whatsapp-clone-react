@@ -73,7 +73,7 @@ $auxiliar-color: #18252D;
       width: 100%;
       height: 100%;
       @include flexCenter(row, space-between, center);
-      p {
+      .p {
         font-size: 1.4rem;
         font-weight: $bold-weight;
         color: $primary-text-color;
@@ -140,7 +140,7 @@ $auxiliar-color: #18252D;
         display: grid;
         align-content: center;
         padding-left: 20px;
-        p {
+        .p {
           font-size: 1.6rem;
           color: $secondary-text-color;
         }
@@ -160,3 +160,56 @@ $auxiliar-color: #18252D;
   }
 }
 
+.p {
+  margin-bottom: 0 !important;
+}
+
+.dropdown {
+  width: 31px !important;
+  height: 26px !important;
+  position: relative !important;
+
+}
+.btn-success {
+  background-color: transparent !important;
+  border: none !important;
+}
+
+.dropdown-menu.show {
+  display: grid !important;
+  align-items: center;
+}
+
+.dropdown-menu {
+  background-color: $secondary-color !important;
+  width: 160px !important;
+  height: 180px !important;
+  position: absolute !important;
+  top: 0 !important;
+  left: -121px !important;
+  .dropdown-item {
+    color: $light-color;
+    font-size: 1.4rem !important;
+    font-family: $font-source !important;
+    letter-spacing: 1px !important;
+    &:hover {
+      background-color: transparent !important;
+      color: $light-color;
+    }
+  }
+}
+
+.dropdown-toggle {
+  padding: 0 !important;
+  width: 31px !important;
+  height: 26px !important;
+}
+/* remove v icon */
+.dropdown-toggle::after {
+  content: none !important;
+}
+
+.Link-style {
+  text-decoration: none;
+  color: $light-color;
+}

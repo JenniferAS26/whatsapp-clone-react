@@ -1,8 +1,8 @@
-import React, {  useState } from 'react'
+import React, { useState } from 'react'
+import { useLocation, useNavigate } from 'react-router-dom'
 import { Link } from 'react-router-dom'
 import Dropdown from 'react-bootstrap/Dropdown'
 import wallpaper from '@images/wallpaper.png'
-import profilePicture from '@images/profile-pic2.jpg'
 import smileyFace from '@icons/smiley-face.png'
 import backArrow from '@icons/back-grey.png'
 import videoCamera from '@icons/video-camera-white.png'
@@ -14,10 +14,16 @@ import voiceNote from '@icons/voice-note.png'
 import sendMessage from '@icons/send.png'
 import './styles.scss'
 
-const Chat = () => {
+const Chat = () => {   
+  const location = useLocation()
+  const data = location.state
+
+  const navigation = useNavigate()
+
   const [inputValue, setInputValue] = useState('')
   const [sendIconSrc, setSendIconSrc] = useState(voiceNote)
-
+  
+  // const [user, setUser] = useState([])
   const handleInputChange = event => {
     const value = event.target.value
     setInputValue(value)
@@ -29,15 +35,17 @@ const Chat = () => {
     }
   }
 
-  return (<>
+  const contactDetail = (id) => {
+    navigation(`/contact-info/${id}`, {state: data})
+  }
+
+  return (<div id={data.id}>
     <div className="chats-container__header">
       <div className="chats-container__header--left">
         <Link to='/home'><img className="arrow-back" src={backArrow} alt="arrow icon"/></Link>
-        <div className="contact-info" id=''>
-          <img src={profilePicture} alt="profile picture" />
-          <Link className='Link-style' to='/contact-info'>
-            <p className="username">Jane Doe</p>
-          </Link>
+        <div className="contact-info" onClick={() => contactDetail(data.id)}>
+          <img src={data.url_image} alt="profile picture" />
+          <p className="username">{data.name}</p>
       </div>
       </div>
       <div className="chats-container__header--right">
@@ -50,7 +58,7 @@ const Chat = () => {
 
           <Dropdown.Menu>
             <Dropdown.Item>
-              <Link className='Link-style' to='/contact-info'>View contact</Link>
+              <div onClick={() => contactDetail(data.id)}>View contact</div>
             </Dropdown.Item>
             <Dropdown.Item>New broadcast</Dropdown.Item>
             <Dropdown.Item>Linked devices</Dropdown.Item>
@@ -87,7 +95,7 @@ const Chat = () => {
         </button>
       </form>
     </div>
-  </>)
+  </div>)
 }
 
 export default Chat 

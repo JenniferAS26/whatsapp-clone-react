@@ -1,11 +1,19 @@
-import { createContext } from 'react'
+import React from 'react'
+import { createContext, useState } from 'react'
 
-const userContext = createContext()
+export const UserContext = createContext()
 
-export const  userProvider  = ({ children }) => {
+export const  UserProvider  = ({ children }) => {
+
+  // Chat detail
+  const [contactToShow, setContactToShow] = useState([])
+
   return (
-    <userContext>
+    <UserContext.Provider value={{
+      contactToShow,
+      setContactToShow,
+    }}>
       {children}
-    </userContext>
+    </UserContext.Provider>
   )
 }

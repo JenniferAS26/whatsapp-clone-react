@@ -120,11 +120,12 @@ $message-text-color: #707980;
 .dropdown {
   width: 31px !important;
   height: 26px !important;
+  position: relative !important;
+
 }
 .btn-success {
   background-color: transparent !important;
   border: none !important;
-  position: relative !important;
 }
 
 .dropdown-menu.show {
@@ -135,7 +136,10 @@ $message-text-color: #707980;
 .dropdown-menu {
   background-color: $secondary-color !important;
   width: 150px !important;
-  height: 240px;
+  height: 240px !important;
+  position: absolute !important;
+  top: 10px !important;
+  left: -110px !important;
   .dropdown-item {
     color: $light-color;
     font-size: 1.4rem !important;
