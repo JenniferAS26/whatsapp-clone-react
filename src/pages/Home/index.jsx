@@ -1,7 +1,5 @@
 import React, { useState, useEffect, useContext } from 'react'
 import { UserContext } from '../../Context'
-
-import { Link } from 'react-router-dom'
 import Header from '@components/Header'
 import ChatContainer from '@components/ChatContainer'
 import ChatCard from '@components/ChatCard'
@@ -24,9 +22,7 @@ const Home = () => {
         <ChatContainer>
           {
             users?.map(user => (
-              // <Link to='/chat'>
-                <ChatCard key={user.id} data={user}/>
-              // </Link>
+              <ChatCard key={user.id} data={user}/>
             ))
           }
         </ChatContainer>

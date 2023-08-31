@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { Link } from 'react-router-dom'
-import { createData, saveImage } from '../../services/api.js'
+import { createData, saveImage } from '@services/api.js'
 import silhouette from '@images/user-silhouette.jpg'
 import { FaChevronLeft } from 'react-icons/fa'
 import './styles.scss'

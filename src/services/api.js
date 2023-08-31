@@ -21,7 +21,7 @@ const readData = async (endpoint, id = '') => {
 
 const updateData = async (endpoint, id, body) => {
   try {
-    await axios.put(`${BASE_URL}/${endpoint}/${id}`, body)
+    await axios.patch(`${BASE_URL}/${endpoint}/${id}`, body)
   } catch (error) {
     console.log(error)
   }

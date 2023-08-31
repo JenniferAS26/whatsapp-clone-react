@@ -1,5 +1,7 @@
-import React from 'react'
-import { Link, useLocation, useNavigate } from 'react-router-dom'
+import React, {useEffect} from 'react'
+import { useLocation, useNavigate } from 'react-router-dom'
+import { deleteData } from '@services/api.js'
+import Swal from 'sweetalert2'
 import Dropdown from 'react-bootstrap/Dropdown'
 import backIcon from '@icons/back.png'
 import verticalMenu from '@icons/menu-vertical.png'
@@ -8,27 +10,59 @@ import carousel2 from '@images/image2.jpg'
 import carousel3 from '@images/image3.jpg'
 import carousel4 from '@images/image4.jpg'
 import carousel5 from '@images/image5.jpg'
-import { FaPhoneAlt } from 'react-icons/fa'
-import { FaVideo } from 'react-icons/fa'
-import { ImSearch } from 'react-icons/Im'
-import { FaChevronRight } from 'react-icons/fa'
-import { FaBell } from 'react-icons/fa'
-import { FaFire } from 'react-icons/fa'
-import { ImImage } from 'react-icons/Im'
-import { FaStar } from 'react-icons/fa'
-import { FaTrashAlt } from 'react-icons/fa'
+import { 
+  FaPhoneAlt, FaVideo, 
+  FaChevronRight, FaBell,
+  FaFire, FaStar, 
+  FaTrashAlt, FaLockOpen 
+} from 'react-icons/fa'
+import { ImSearch, ImImage } from 'react-icons/Im'
 import { PiClockCountdownFill } from 'react-icons/pi'
-import { FaLockOpen } from 'react-icons/fa'
 import './styles.scss'
 
 const ContactInformation = () => {
   const location = useLocation()
   const data = location.state
-  console.log(data.id);
   const navigate = useNavigate()
 
   const goToUpdateContact = (id) => {
     navigate(`/edit-contact/${id}`)
+  }
+
+  const deleteContactSweetAlert = async () => {
+    await Swal.fire({
+      title: 'Delete Account',
+      text: 'Are you sure you want to delete your account?',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonText: 'Yes, delete it!',
+      cancelButtonText: 'Cancel',
+      reverseButtons: true,
+      "customClass": {
+          button: 'custom-button',
+          htmlContainer: 'custom-container'
+      },
+    })
+  }
+
+  const deleteContact = async (id) => {
+    const userConfirmDeletion = await Swal.fire({
+      title: 'Delete this chat?',
+      text: 'Messages will only be removed from this device and you devices on the newer versions of WhatsApp',
+      showCancelButton: true,
+      confirmButtonText: 'Delete chat',
+      cancelButtonText: 'Cancel',
+      reverseButtons: true,
+      "customClass": {
+          button: 'custom-button',
+          htmlContainer: 'custom-container'
+      },
+    })
+    if (userConfirmDeletion.isConfirmed) {
+      await deleteData('users', id)
+      navigate('/home')
+      window.location.reload()
+    }
   }
 
   return (
@@ -118,7 +152,10 @@ const ContactInformation = () => {
       </div>
       <div className="contact-info-container__encryption">
         <div className="contact-info-container__encryption--items" id={data.id}>
-          <button className="delete-button">
+          <button 
+            className="delete-button" 
+            onClick={() => deleteContact(data.id)}
+          >
             <FaTrashAlt />
           </button>
           <div className="description-wrapper">
