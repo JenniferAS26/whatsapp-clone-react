@@ -1,12 +1,10 @@
-import React, { useState, useEffect, useContext } from 'react'
+import React, { useState, useEffect } from 'react'
 import { UserContext } from '../../Context'
 import Header from '@components/Header'
 import ChatContainer from '@components/ChatContainer'
 import ChatCard from '@components/ChatCard'
 
 const Home = () => {
-  const context = useContext(UserContext)
-
   const [users, setUsers] = useState([])
 
   useEffect(() => {

@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
 import { useLocation, useNavigate } from 'react-router-dom'
 import { Link } from 'react-router-dom'
+import ChatMessages from '@components/ChatMessages'
 import Dropdown from 'react-bootstrap/Dropdown'
-import wallpaper from '@images/wallpaper.png'
 import smileyFace from '@icons/smiley-face.png'
 import backArrow from '@icons/back-grey.png'
 import videoCamera from '@icons/video-camera-white.png'
@@ -12,6 +12,7 @@ import clip from '@icons/clip.png'
 import camera from '@icons/camera.png'
 import voiceNote from '@icons/voice-note.png'
 import sendMessage from '@icons/send.png'
+import MessageContainer from '@components/MessageContainer'
 import './styles.scss'
 
 const Chat = () => {   
@@ -40,20 +41,20 @@ const Chat = () => {
   }
 
   return (<div id={data.id}>
-    <div className="chats-container__header">
-      <div className="chats-container__header--left">
-        <Link to='/home'><img className="arrow-back" src={backArrow} alt="arrow icon"/></Link>
-        <div className="contact-info" onClick={() => contactDetail(data.id)}>
-          <img src={data.url_image} alt="profile picture" />
-          <p className="username">{data.name}</p>
+    <div className='chats-container__header'>
+      <div className='chats-container__header--left'>
+        <Link to='/home'><img className='arrow-back' src={backArrow} alt='arrow icon'/></Link>
+        <div className='contact-info' onClick={() => contactDetail(data.id)}>
+          <img src={data.url_image} alt='profile picture' />
+          <p className='username'>{data.name}</p>
       </div>
       </div>
-      <div className="chats-container__header--right">
-        <img src={videoCamera} alt="video camera icon"/>
-        <img src={phone} alt="telephone icon"/>
+      <div className='chats-container__header--right'>
+        <img src={videoCamera} alt='video camera icon'/>
+        <img src={phone} alt='telephone icon'/>
         <Dropdown>
           <Dropdown.Toggle variant='success'>
-            <img className="chat-menu-icon" src={menu} alt="menu icon"/>
+            <img className='chat-menu-icon' src={menu} alt='menu icon'/>
           </Dropdown.Toggle>
 
           <Dropdown.Menu>
@@ -68,27 +69,27 @@ const Chat = () => {
         </Dropdown>
       </div>
     </div>
-    <div className="chats-container__main">
-      <div className="chats-container__main--wallpaper-container">
-        <img src={wallpaper} alt="wallpaper image" />
-      </div>
-      <form className="chats-container__main--bottom-container">
-        <div className="emojis">
-        <img className="smiley-face" src={smileyFace} alt="smiley-face icon"/>
+    <div className='chats-container__main'>
+      <MessageContainer>
+        <ChatMessages/>
+      </MessageContainer>
+      <form className='chats-container__main--bottom-container'>
+        <div className='emojis'>
+        <img className='smiley-face' src={smileyFace} alt='smiley-face icon'/>
         </div>
         <input 
-          className="input-message" 
-          type="text" 
-          placeholder="Type a message" 
+          className='input-message' 
+          type='text' 
+          placeholder='Type a message' 
           onChange={handleInputChange} 
         />
-        <div className="icons">
-          <img className="clip-icon" src={clip} alt="clip icon"/>
-          <img className="camera-icon" src={camera} alt="camera icon"/>
+        <div className='icons'>
+          <img className='clip-icon' src={clip} alt='clip icon'/>
+          <img className='camera-icon' src={camera} alt='camera icon'/>
         </div>
-        <button className="send-message-button">
+        <button className='send-message-button'>
           <img 
-            className="send-icon" 
+            className='send-icon' 
             src={sendIconSrc} 
             alt={inputValue !== '' ? 'Send icon' : 'Microphone icon'}
           />

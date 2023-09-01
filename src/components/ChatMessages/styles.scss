@@ -1,0 +1,26 @@
+@use 'variables' as *;
+@use 'mixins' as *;
+
+$message-out-color: #195344;
+$message-in-color: #202C33;
+
+.message-container {
+  width: 70%;
+  height: auto;
+  background-color: $message-out-color;
+  z-index: 40;
+  position: absolute;
+  right: 20px;
+  bottom: 70px;
+  border-radius: 9px;
+  display: grid;
+  align-items: center;
+  padding: 5px;
+  .message {
+    display: grid;
+    color: $light-color;
+    font-size: 1.4rem;
+    font-weight: $bold-weight;
+    padding-left: 9px;
+  }
+}

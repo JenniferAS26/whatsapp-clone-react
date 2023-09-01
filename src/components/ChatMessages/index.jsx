@@ -1,9 +1,12 @@
 import React from 'react'
+import './styles.scss'
 
 const ChatMessages = () => {
-  return (
-    <h1>Chat Messages</h1>
-  )
+  return (<>
+    <div className='message-container'>
+      <div className='message'>Mensaje dummy</div>
+    </div>
+  </>)
 }
 
 export default ChatMessages
