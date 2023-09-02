@@ -1,0 +1,240 @@
+{
+  "users": [
+    {
+      "name": "Pedrito Fernandez",
+      "phone_number": "3130043256",
+      "password": "659647965",
+      "url_image": "http://res.cloudinary.com/dkd5jyxby/image/upload/v1692981992/gmvtnm3ivklgsoe5k4ye.jpg",
+      "quote": "kfhjbjvb",
+      "date": "Fri Aug 25 2023 11:46:33 GMT-0500 (hora estándar de Colombia)",
+      "id": 2
+    },
+    {
+      "name": "Camilo Arias",
+      "phone_number": "32155697485",
+      "password": "4546552d",
+      "url_image": "http://res.cloudinary.com/dkd5jyxby/image/upload/v1692986195/rxevncnnznjb6lmob1el.jpg",
+      "quote": "Soy una cita...",
+      "date": "Fri Aug 25 2023 12:56:37 GMT-0500 (hora estándar de Colombia)",
+      "id": 3
+    },
+    {
+      "name": "Camila Lopez",
+      "phone_number": "325984132156",
+      "password": "fvdnhdh74",
+      "url_image": "http://res.cloudinary.com/dkd5jyxby/image/upload/v1692986232/llrgahc35kdbt1rub5u3.jpg",
+      "quote": "Soy rebelde",
+      "date": "Fri Aug 25 2023 12:57:13 GMT-0500 (hora estándar de Colombia)",
+      "id": 4
+    },
+    {
+      "name": "Margarita Villa",
+      "phone_number": "3115988423",
+      "password": "fvdnhdh",
+      "url_image": "http://res.cloudinary.com/dkd5jyxby/image/upload/v1692986258/zhexkxtngervafxhk1st.png",
+      "quote": "Hola",
+      "date": "Fri Aug 25 2023 12:57:40 GMT-0500 (hora estándar de Colombia)",
+      "id": 5
+    },
+    {
+      "name": "Karen Sanchez",
+      "phone_number": "3258741549",
+      "password": "fkjfu5566",
+      "url_image": "http://res.cloudinary.com/dkd5jyxby/image/upload/v1692986290/ozlhv4i7xejhn55f2apd.png",
+      "quote": "Musiquita",
+      "date": "Fri Aug 25 2023 12:58:11 GMT-0500 (hora estándar de Colombia)",
+      "id": 6
+    },
+    {
+      "name": "Kevin",
+      "phone_number": "554521532",
+      "password": "fdjkvhnv66",
+      "url_image": "http://res.cloudinary.com/dkd5jyxby/image/upload/v1692986316/dzuj3vc2dza2me9p7qzx.jpg",
+      "quote": "la nea",
+      "date": "Fri Aug 25 2023 12:58:37 GMT-0500 (hora estándar de Colombia)",
+      "id": 7
+    },
+    {
+      "name": "Santiago Olarte",
+      "phone_number": "31256954785",
+      "password": "dsfg",
+      "url_image": "http://res.cloudinary.com/dkd5jyxby/image/upload/v1693274655/oxewfkanpdgzowcousgf.png",
+      "quote": "ertgh",
+      "date": "Mon Aug 28 2023 21:04:17 GMT-0500 (hora estándar de Colombia)",
+      "id": 15
+    },
+    {
+      "name": "Kevin La Nea",
+      "phone_number": "456789",
+      "password": "iuydfgh",
+      "url_image": "http://res.cloudinary.com/dkd5jyxby/image/upload/v1693275788/hocq8u4hog3zrx9tvqr9.jpg",
+      "quote": "wfd",
+      "date": "Mon Aug 28 2023 21:23:10 GMT-0500 (hora estándar de Colombia)",
+      "id": 16
+    },
+    {
+      "name": "Jenn",
+      "phone_number": "3154281024",
+      "password": "1993",
+      "url_image": "http://res.cloudinary.com/dkd5jyxby/image/upload/v1693514902/pvqubsyazpmjeybd21ps.jpg",
+      "quote": "Soy un nuevo usuario",
+      "date": "Thu Aug 31 2023 15:48:23 GMT-0500 (hora estándar de Colombia)",
+      "id": 17
+    },
+    {
+      "name": "Fer",
+      "phone_number": "314569875",
+      "password": "14785",
+      "url_image": "http://res.cloudinary.com/dkd5jyxby/image/upload/v1693515284/pmpiltcehgypdqgfvh2h.jpg",
+      "quote": "Me gusta mana",
+      "date": "Thu Aug 31 2023 15:54:45 GMT-0500 (hora estándar de Colombia)",
+      "id": 18
+    },
+    {
+      "name": "Erney",
+      "phone_number": "31254792",
+      "password": "17485",
+      "url_image": "http://res.cloudinary.com/dkd5jyxby/image/upload/v1693516022/ost8gpxw979z1rprayo5.jpg",
+      "quote": "eee",
+      "date": "Thu Aug 31 2023 16:07:03 GMT-0500 (hora estándar de Colombia)",
+      "id": 19
+    }
+  ],
+  "messages": [
+    {
+      "userId": "1",
+      "contactId": "6",
+      "chats": [
+        {
+          "sendBy": [
+            {
+              "userId": 1,
+              "messages": [
+                {
+                  "messageId": 1,
+                  "message": "Hola como va todo?",
+                  "dateDelivered": ""
+                }
+              ]
+            }
+          ],
+          "date": "",
+          "hour": "",
+          "view": false
+        }
+      ]
+    },
+    {
+      "userId": 3,
+      "contactId": 1,
+      "chats": [
+        {
+          "sendBy": [
+            {
+              "userId": 3,
+              "messages": [
+                {
+                  "messageId": 1,
+                  "message": "Tienes planes para hoy?",
+                  "dateDelivered": ""
+                }
+              ]
+            }
+          ],
+          "date": "",
+          "hour": "",
+          "view": false
+        }
+      ]
+    },
+    {
+      "userId": "1",
+      "contactId": "6",
+      "chats": [
+        {
+          "sendBy": [
+            {
+              "userId": 1,
+              "messages": [
+                {
+                  "messageId": 1,
+                  "message": "Hola como va todo?",
+                  "dateDelivered": ""
+                }
+              ]
+            }
+          ],
+          "date": "",
+          "hour": "",
+          "view": false
+        }
+      ]
+    },
+    {
+      "userId": 3,
+      "contactId": 1,
+      "chats": [
+        {
+          "sendBy": [
+            {
+              "userId": 3,
+              "messages": [
+                {
+                  "messageId": 1,
+                  "message": "Tienes planes para hoy?",
+                  "dateDelivered": ""
+                }
+              ]
+            }
+          ],
+          "date": "",
+          "hour": "",
+          "view": false
+        }
+      ]
+    }
+  ],
+  "chats": [
+    {
+      "id": 1,
+      "contactsChats": [
+        {
+          "contactId": 1,
+          "contactPhoto": "https://images.unsplash.com/photo-1692171481272-eca33bc429b2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1376&q=80",
+          "lastMessage": "Hola, cómo estas?",
+          "dateMessage": ""
+        },
+        {
+          "contactId": 2,
+          "contactPhoto": "https://images.unsplash.com/photo-1692714720658-bcf48e98ab8f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80",
+          "lastMessage": "Tengo un chisme para contarte",
+          "dateMessage": ""
+        },
+        {
+          "contactId": 3,
+          "contactPhoto": "https://images.unsplash.com/photo-1693170509455-f28aefcd1005?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80",
+          "lastMessage": "Mira esto que encontré",
+          "dateMessage": ""
+        },
+        {
+          "contactId": 4,
+          "contactPhoto": "https://images.unsplash.com/photo-1692880900831-c59ab014f662?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80",
+          "lastMessage": "Necesito pedirte un favor",
+          "dateMessage": ""
+        },
+        {
+          "contactId": 5,
+          "contactPhoto": "https://images.unsplash.com/photo-1692560415033-44a79cff20b8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1529&q=80",
+          "lastMessage": "El profesor te está buscando",
+          "dateMessage": ""
+        },
+        {
+          "contactId": 6,
+          "contactPhoto": "https://images.unsplash.com/photo-1691241146915-0eb91b08d282?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1468&q=80",
+          "lastMessage": "El profesor te está buscando",
+          "dateMessage": ""
+        }
+      ]
+    }
+  ]
+}
