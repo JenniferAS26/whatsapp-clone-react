@@ -27,12 +27,12 @@ const SignupForm = () => {
   }
 
   const onSubmit = async userInfo => {
-    const userVerified = await getDataByQueryParams('users', { cellphone_number: userInfo.cellphone_number })
+    const userVerified = await getDataByQueryParams('users', { phone_number: userInfo.phone_number })
     
     const file = userInfo.url_image[0]
     const imageUrl = await saveImage(file)
 
-    if (userVerified[0]?.cellphone_number === userInfo.cellphone_number) {
+    if (userVerified[0]?.phone_number === userInfo.phone_number) {
       Swal.fire({
         title: 'User already exists',
         confirmButtonText: 'Ok',
@@ -45,7 +45,7 @@ const SignupForm = () => {
     } else {
       const user = {
         name: userInfo.name,
-        cellphone_number: userInfo.cellphone_number,
+        phone_number: userInfo.phone_number,
         password: userInfo.password,
         url_image: imageUrl,
         quote: userInfo.quote,
@@ -116,8 +116,8 @@ const SignupForm = () => {
               <input 
               className="form__input singup-number-input" 
               type="number"
-              {...register('cellphone_number')}
-              name='cellphone_number'
+              {...register('phone_number')}
+              name='phone_number'
               required 
               />
               <label className="input-label" htmlFor="">Enter your phone number</label>

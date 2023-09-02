@@ -61,7 +61,7 @@ const ContactInformation = () => {
         <div className="contact-info-container__top--info contact">
           <img className="contact__photo" src={data.url_image} alt="profile picture"/>
           <h3 className="contact__name">{data.name}</h3>
-          <span className="contact__number">+57 {data.cellphone_number}</span>
+          <span className="contact__number">+57 {data.phone_number}</span>
           <div className="contact__actions">
             <div className="contact__actions--options">
               <button>

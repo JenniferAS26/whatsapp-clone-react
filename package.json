@@ -4,8 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "json-server ./src/Utils/db.json --host 0.0.0.0 --port 3001",
-    "dev": "webpack serve --open --mode development --config webpack.config.dev.js",
+    "start": "webpack serve --open --mode development --config webpack.config.dev.js",
     "build": "webpack --mode production --config webpack.config.js"
   },
   "repository": {

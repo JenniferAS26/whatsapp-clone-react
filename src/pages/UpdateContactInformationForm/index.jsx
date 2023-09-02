@@ -14,7 +14,7 @@ const UpdateContactInformationForm = () => {
   const onSubmit = async userInfo => {
     const user = {
       name:`${userInfo.name} ${userInfo.lastname}`,
-      cellphone_number: userInfo.cellphone_number,
+      phone_number: userInfo.phone_number,
     }
     updateData('users', id, user)
   }
@@ -63,8 +63,8 @@ const UpdateContactInformationForm = () => {
               id='edit-input-phone' 
               className='form__input' 
               type='text' 
-              {...register('cellphone_number')}
-              name='cellphone_number'
+              {...register('phone_number')}
+              name='phone_number'
               required
             />
             <label className='input-label' htmlFor='edit-input-phone'>Phone</label>

@@ -12,9 +12,9 @@ const SigninForm = () => {
 
   const handleSubmit = async event => {
     event.preventDefault()
-    const userData = await getDataByQueryParams('users', { cellphone_number: phoneNumber })
+    const userData = await getDataByQueryParams('users', { phone_number: phoneNumber })
     if (userData.length) {
-      if (userData[0].password === password) {
+      if (userData[0]?.password === password) {
         Swal.fire({
           title: `Welcome back ${userData[0].name}`,
           confirmButtonText: 'Ok',
