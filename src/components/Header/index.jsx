@@ -1,5 +1,7 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
+import { deleteData } from '@utils/api.js'
+import Swal from 'sweetalert2'
 import Dropdown from 'react-bootstrap/Dropdown'
 import verticalMenu from '@icons/menu-vertical.png'
 import searchIcon from '@icons/search.png'
@@ -15,6 +17,27 @@ const Header = () => {
 
   const goToProfile = () => {
     navigate('/profile')
+  }
+
+  const userData = JSON.parse(localStorage.getItem('userDataSession'))
+
+  const deleteAccount = async (id) => {
+    const userConfirmDeletion = await Swal.fire({
+      title: 'Are you sure that you want to delete this account?',
+      showCancelButton: true,
+      confirmButtonText: 'Delete',
+      cancelButtonText: 'Cancel',
+      reverseButtons: true,
+      "customClass": {
+          button: 'custom-button',
+          htmlContainer: 'custom-container'
+      },
+    })
+    if (userConfirmDeletion.isConfirmed) {
+      await deleteData('users', id)
+      navigate('/sign-in')
+      window.location.reload()
+    }
   }
 
   return (
@@ -34,9 +57,11 @@ const Header = () => {
               </Dropdown.Item>
               <Dropdown.Item>New broadcast</Dropdown.Item>
               <Dropdown.Item>Linked devices</Dropdown.Item>
-              <Dropdown.Item>Starred messages</Dropdown.Item>
               <Dropdown.Item>
                 <div onClick={() => goToProfile()}>Profile</div>
+              </Dropdown.Item>
+              <Dropdown.Item>
+                <div onClick={() => deleteAccount(userData.id)}>Delete this account</div>
               </Dropdown.Item>
             </Dropdown.Menu>
           </Dropdown>
