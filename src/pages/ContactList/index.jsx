@@ -9,6 +9,8 @@ import { HiUserPlus } from 'react-icons/hi2'
 import './styles.scss'
 
 const ContactList = () => {
+  const userContacts = JSON.parse(localStorage.getItem('userContacts'))
+
   const navigate = useNavigate()
 
   const goToNewContact = () => {
@@ -26,7 +28,7 @@ const ContactList = () => {
           <img src={backArrow} alt='arrow back icon' onClick={() => goBack()} />
           <div className='info'>
             <h2 className='info__title'>Select contact</h2>
-            <span className='info__text'>10 contacts</span>
+            <span className='info__text'>{userContacts.length} contacts</span>
           </div>
         </div>
         <div className='contact-list-container__header--right'>
@@ -46,9 +48,14 @@ const ContactList = () => {
         </div>
         <span className='section-title'>Contacts on WhatsApp</span>
         <div className='cards-contacts-container'>
+          {/* <ContactCard/>
           <ContactCard/>
-          <ContactCard/>
-          <ContactCard/>
+          <ContactCard/> */}
+          {
+            userContacts.map(contact => (
+              <ContactCard key={contact.contactId} data={contact} />
+            ))
+          }
         </div>
       </div>
     </section>
