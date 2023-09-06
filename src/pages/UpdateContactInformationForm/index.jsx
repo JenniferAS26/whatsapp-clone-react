@@ -1,7 +1,8 @@
 import React from 'react'
-import { Link, useNavigate, useLocation, useParams } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { useForm } from 'react-hook-form'
-import { updateData, getDataByQueryParams } from '@utils/api.js'
+import { updateData } from '@utils/api.js'
+import Swal from 'sweetalert2'
 import backIcon from '@icons/back.png'
 import { FaUser, FaPhoneAlt } from 'react-icons/fa'
 import './styles.scss'
@@ -17,8 +18,20 @@ const UpdateContactInformationForm = () => {
       contactName:`${userInfo.name} ${userInfo.lastname}`,
       contactPhoneNumber: userInfo.phone_number,
     }
-    console.log(contactData);
     await updateData('chats', contactData.id, contact)
+    const userConfirmDeletion = await Swal.fire({
+      title: 'This contact info was updated successfully',
+      confirmButtonText: 'Ok',
+      reverseButtons: true,
+      "customClass": {
+          button: 'custom-button',
+          htmlContainer: 'custom-container'
+      },
+    })
+    if (userConfirmDeletion.isConfirmed) {
+      navigate('/home')
+      window.location.reload()
+    }
   }
 
   return (

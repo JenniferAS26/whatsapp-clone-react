@@ -1,9 +1,8 @@
 import React, { useState } from 'react'
 import { useForm } from 'react-hook-form'
-import { Link, useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import { updateData, saveImage } from '@utils/api.js'
 import Swal from 'sweetalert2'
-import { FaChevronLeft } from 'react-icons/fa'
 import backArrow from '@icons/back.png'
 import './styles.scss'
 
