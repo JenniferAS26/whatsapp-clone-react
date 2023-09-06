@@ -1,6 +1,7 @@
 import React, { useContext } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { UserContext } from '../../Context'
+import { BiCheckDouble } from 'react-icons/bi'
 import './styles.scss'
 
 
@@ -16,21 +17,23 @@ const ChatCard = (data) => {
 
   /** Date format */
   const dateObject = new Date(data.data.dateMessage)
-  const formatedDate = dateObject.toLocaleTimeString([], {hour: "2-digit", minute: "2-digit"}) // a.m / p.m
+  const formatedDate = dateObject.toLocaleTimeString([], {hour: '2-digit', minute: '2-digit'}) // a.m / p.m
 
   return (
     <div 
-      className="card-chat" 
+      className='card-chat' 
       id={data.data.id} 
       onClick={() => {
         showContact(data.data)
 
       }}>
-      <div className="profile-container">
-        <img className="profile-container__image" src={data.data.contactPhoto} alt="profile picture"/>
-        <p className="profile-container__title">{data.data.contactName}</p>
-      </div>
-      <span className="connection">{formatedDate}</span>
+      <img className='image' src={data.data.contactPhoto} alt='profile picture'/>
+      <p className='title'>{data.data.contactName}</p>
+      <p className='last-message'>{data.data.lastMessage}</p>
+      <span className='double-check'>
+        <BiCheckDouble/>
+      </span>
+      <span className='connection'>{formatedDate}</span>
     </div>
   )
 }
