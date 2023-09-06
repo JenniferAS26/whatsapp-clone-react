@@ -10,12 +10,12 @@ const ChatCard = (data) => {
 
   const showContact = (contactDetail) => {
     context.setContactToShow([...context.contactToShow, contactDetail])
-    navigate(`/chat/${contactDetail.id}`, {state: contactDetail}  
+    navigate(`/chat/${contactDetail.contactId}`, {state: contactDetail}  
     )
   }
 
   /** Date format */
-  const dateObject = new Date(data.data.date)
+  const dateObject = new Date(data.data.dateMessage)
   const formatedDate = dateObject.toLocaleTimeString([], {hour: "2-digit", minute: "2-digit"}) // a.m / p.m
 
   return (
@@ -27,8 +27,8 @@ const ChatCard = (data) => {
 
       }}>
       <div className="profile-container">
-        <img className="profile-container__image" src={data.data.url_image} alt="profile picture"/>
-        <p className="profile-container__title">{data.data.name}</p>
+        <img className="profile-container__image" src={data.data.contactPhoto} alt="profile picture"/>
+        <p className="profile-container__title">{data.data.contactName}</p>
       </div>
       <span className="connection">{formatedDate}</span>
     </div>

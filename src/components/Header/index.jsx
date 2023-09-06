@@ -1,4 +1,5 @@
 import React from 'react'
+import { useNavigate } from 'react-router-dom'
 import Dropdown from 'react-bootstrap/Dropdown'
 import verticalMenu from '@icons/menu-vertical.png'
 import searchIcon from '@icons/search.png'
@@ -6,6 +7,16 @@ import cameraIcon from '@icons/camera.png'
 import './styles.scss'
 
 const Header = () => {
+  const navigate = useNavigate()
+  
+  const goToContactList = () => {
+    navigate('/contact-list')
+  }
+
+  const goToProfile = () => {
+    navigate('/profile')
+  }
+
   return (
     <div className="header">
       <div className="header__top">
@@ -18,11 +29,15 @@ const Header = () => {
             </Dropdown.Toggle>
 
             <Dropdown.Menu>
-              <Dropdown.Item>New group</Dropdown.Item>
+              <Dropdown.Item>
+                <div onClick={() => goToContactList()}>New contact</div>
+              </Dropdown.Item>
               <Dropdown.Item>New broadcast</Dropdown.Item>
               <Dropdown.Item>Linked devices</Dropdown.Item>
               <Dropdown.Item>Starred messages</Dropdown.Item>
-              <Dropdown.Item>Settings</Dropdown.Item>
+              <Dropdown.Item>
+                <div onClick={() => goToProfile()}>Profile</div>
+              </Dropdown.Item>
             </Dropdown.Menu>
           </Dropdown>
         </div>

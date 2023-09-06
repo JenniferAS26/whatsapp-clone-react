@@ -2,6 +2,7 @@ import axios from 'axios'
 const BASE_URL = process.env.API
 const CLOUDINARY_URL = 'https://api.cloudinary.com/v1_1/dkd5jyxby/image/upload'
 
+/** Users */
 const createData = async (endpoint, body) => {
   try {
     await axios.post(`${BASE_URL}/${endpoint}`, body)
@@ -36,6 +37,14 @@ const updateData = async (endpoint, id, body) => {
   }
 }
 
+const updateDataByQueryParams = async (endpoint, body, params) => {
+  try {
+    await axios.patch(`${BASE_URL}/${endpoint}`, body, { params: params })
+  } catch (error) {
+    console.log(error)
+  }
+}
+
 const deleteData = async (endpoint, id) => {
   try {
     await axios.delete(`${BASE_URL}/${endpoint}/${id}`)
@@ -57,4 +66,12 @@ const saveImage = async file => {
   return response.data.url
 }
 
-export { createData, readData, getDataByQueryParams, updateData, deleteData, saveImage }
+export { 
+  createData, 
+  readData, 
+  getDataByQueryParams, 
+  updateData, 
+  updateDataByQueryParams,
+  deleteData, 
+  saveImage,
+}

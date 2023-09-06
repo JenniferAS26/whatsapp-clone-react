@@ -1,34 +1,30 @@
 import React, { useState, useEffect } from 'react'
-import { UserContext } from '../../Context'
 import Header from '@components/Header'
 import ChatContainer from '@components/ChatContainer'
 import ChatCard from '@components/ChatCard'
 
 const Home = () => {
-  const [users, setUsers] = useState([])
+  const [contacts, setContacts] = useState([])
 
-  useEffect(() => {
-    fetch('https://whatsapp-clone-sprint-db.up.railway.app/users')
+  useEffect( () => {
+    const currentId = localStorage.getItem('currentId')
+    fetch(`https://whatsapp-clone-sprint-db.up.railway.app/chats?userId=${currentId}`)
       .then(response => response.json())
-      .then(data => setUsers(data))
+      .then(data => setContacts(data))
   }, [])
 
-  if (users !== undefined ) {
-    return (
-      <div className='home-container'>
-        <Header/>
-        <ChatContainer>
-          {
-            users?.map(user => (
-              <ChatCard key={user.id} data={user}/>
-            ))
-          }
-        </ChatContainer>
-      </div>
-    )
-  }
-  
-    
+  return (
+    <div className='home-container'>
+      <Header/>
+      <ChatContainer>
+        {
+          contacts.map(contact => (
+            <ChatCard key={contact.contactId} data={contact}/>
+          ))
+        }
+      </ChatContainer>
+    </div>
+  ) 
 }
 
 export default Home 

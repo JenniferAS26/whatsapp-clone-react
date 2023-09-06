@@ -2,7 +2,6 @@
 @use 'mixins' as *;
 
 .home-container {
-  // display: none;
   display: block;
   @include containerStyle(100%, 100%, 0, 0);
 }

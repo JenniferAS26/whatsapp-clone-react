@@ -1,22 +1,24 @@
 import React from 'react'
 import { Link, useNavigate, useLocation, useParams } from 'react-router-dom'
 import { useForm } from 'react-hook-form'
-import { updateData } from '@utils/api.js'
+import { updateData, getDataByQueryParams } from '@utils/api.js'
 import backIcon from '@icons/back.png'
 import { FaUser, FaPhoneAlt } from 'react-icons/fa'
 import './styles.scss'
 
 const UpdateContactInformationForm = () => {
-  const { id } = useParams()
   const navigate = useNavigate()
   const { register, handleSubmit } = useForm()
-
+  
+  const contactData = JSON.parse(localStorage.getItem('contactData'))
   const onSubmit = async userInfo => {
-    const user = {
-      name:`${userInfo.name} ${userInfo.lastname}`,
-      phone_number: userInfo.phone_number,
+    
+    const contact = {
+      contactName:`${userInfo.name} ${userInfo.lastname}`,
+      contactPhoneNumber: userInfo.phone_number,
     }
-    updateData('users', id, user)
+    console.log(contactData);
+    await updateData('chats', contactData.id, contact)
   }
 
   return (

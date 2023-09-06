@@ -25,6 +25,9 @@ const ContactInformation = () => {
   const data = location.state
   const navigate = useNavigate()
 
+  localStorage.setItem('contactData', JSON.stringify(data))
+  const contactData = JSON.parse(localStorage.getItem('contactData'))
+
   const goToUpdateContact = (id) => {
     navigate(`/edit-contact/${id}`)
   }
@@ -43,14 +46,14 @@ const ContactInformation = () => {
       },
     })
     if (userConfirmDeletion.isConfirmed) {
-      await deleteData('users', id)
+      await deleteData('chats', id)
       navigate('/home')
       window.location.reload()
     }
   }
 
   return (
-    <section className='contact-info-container'>
+    <section className='contact-info-container' id={data.id}>
       <div className="contact-info-container__top">
         <img 
           className="arrow-back-icon" 
@@ -59,9 +62,9 @@ const ContactInformation = () => {
           onClick={() => navigate(-1)}
         />
         <div className="contact-info-container__top--info contact">
-          <img className="contact__photo" src={data.url_image} alt="profile picture"/>
-          <h3 className="contact__name">{data.name}</h3>
-          <span className="contact__number">+57 {data.phone_number}</span>
+          <img className="contact__photo" src={data.contactPhoto} alt="profile picture"/>
+          <h3 className="contact__name">{data.contactName}</h3>
+          <span className="contact__number">+57 {data.contactPhoneNumber}</span>
           <div className="contact__actions">
             <div className="contact__actions--options">
               <button>
@@ -91,7 +94,7 @@ const ContactInformation = () => {
           <Dropdown.Menu className='dropdown-menu-contact'>
             <Dropdown.Item>Share</Dropdown.Item>
             <Dropdown.Item>
-              <div onClick={() => goToUpdateContact(data.id)}>Edit</div>
+              <div onClick={() => goToUpdateContact(data.contactId)}>Edit</div>
             </Dropdown.Item>
             <Dropdown.Item>View in address book</Dropdown.Item>
             <Dropdown.Item>Verify security code</Dropdown.Item>
@@ -138,7 +141,7 @@ const ContactInformation = () => {
         <div className="contact-info-container__encryption--items" id={data.id}>
           <button 
             className="delete-button" 
-            onClick={() => deleteContact(data.id)}
+            onClick={() => deleteContact(contactData.id)}
           >
             <FaTrashAlt />
           </button>

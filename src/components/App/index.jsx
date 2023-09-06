@@ -8,6 +8,9 @@ import Home from '@pages/Home'
 import Chat from '@pages/Chat'
 import ContactInformation from '@pages/ContactInformation'
 import UpdateContactInformationForm from '@pages/UpdateContactInformationForm'
+import ContactList from '@pages/ContactList'
+import NewContact from '@pages/NewContact'
+import Profile from '@pages/Profile'
 
 const AppRoutes = () => {
   let routes = useRoutes([
@@ -18,6 +21,9 @@ const AppRoutes = () => {
     { path: '/chat/:id', element: <Chat/> },
     { path: '/contact-info/:id', element: <ContactInformation/> },
     { path: '/edit-contact/:id', element: <UpdateContactInformationForm/> },
+    { path: '/contact-list', element: <ContactList/> },
+    { path: '/new-contact', element: <NewContact/> },
+    { path: '/profile', element: <Profile/> },
   ])
   return routes
 }

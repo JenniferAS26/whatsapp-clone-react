@@ -12,4 +12,10 @@
       display: none;
     }
   }
+  .message-button {
+    position: absolute;
+    bottom: 30px;
+    right: 20px;
+    @include buttonStyle(51px, 51px, 50%, uppercase, 1.6rem, $light-color, transparent);
+  }
 }
