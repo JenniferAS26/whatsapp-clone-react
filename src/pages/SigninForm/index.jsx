@@ -14,6 +14,7 @@ const SigninForm = () => {
     event.preventDefault()
     const userData = await getDataByQueryParams('users', { phone_number: phoneNumber })
     localStorage.setItem('userDataSession', JSON.stringify(userData[0]))
+    localStorage.setItem('currentId', JSON.stringify(userData[0].id))
     if (userData.length) {
       if (userData[0]?.password === password) {
         Swal.fire({

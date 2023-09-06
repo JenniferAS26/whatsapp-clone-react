@@ -11,6 +11,9 @@ const NewContact = () => {
   const { register, handleSubmit } = useForm()
   const [imagePreview, setImagePreview] = useState(silhouette)
 
+  const userContacts = JSON.parse(localStorage.getItem('userContacts'))
+  const currentId = localStorage.getItem('currentId')
+
   const navigate = useNavigate()
 
   const handleImageChange = event => {
@@ -34,7 +37,7 @@ const NewContact = () => {
 
     if (contactVerified[0]?.contactPhoneNumber === contactInfo.contactPhoneNumber) {
       Swal.fire({
-        title: 'User already exists',
+        title: 'Contact already exists',
         confirmButtonText: 'Ok',
         reverseButtons: true,
         "customClass": {
@@ -44,13 +47,15 @@ const NewContact = () => {
       })
     } else {
       const newContact = {
+        userId: currentId,
+        contactId: userContacts.length + 1,
         contactName: contactInfo.contactName,
         contactPhoneNumber: contactInfo.contactPhoneNumber,
         contactPhoto: imageUrl
       }
       await createData('chats', newContact)
       const userConfirmDeletion = await Swal.fire({
-        title: 'Account created successfully',
+        title: 'New contact add successfully',
         confirmButtonText: 'Ok',
         reverseButtons: true,
         "customClass": {
@@ -59,7 +64,7 @@ const NewContact = () => {
         },
       })
       if (userConfirmDeletion.isConfirmed) {
-        navigate('/sign-in')
+        navigate('/home')
         window.location.reload()
       }
     }
