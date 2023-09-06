@@ -1,6 +1,8 @@
 # whatsapp-clone-react
-## Comandos 
+## Comandos de ejecución
 `
   npm i 
+`
+`
   npm run start
 `
