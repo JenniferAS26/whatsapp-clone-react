@@ -38,7 +38,7 @@ const Chat = () => {
   }
 
   return (
-    <div id={data.id}>
+    <div id={data.id} className='chats-container'>
       <div className='chats-container__header'>
         <div className='chats-container__header--left'>
           <Link to='/home'><img className='arrow-back' src={backArrow} alt='arrow icon'/></Link>
@@ -70,8 +70,14 @@ const Chat = () => {
       <div className='chats-container__main'>
         <MessageContainer>
           <ChatMessages/>
+          <ChatMessages/>
+          <ChatMessages/>
+          <ChatMessages/>
+          <ChatMessages/>
+          <ChatMessages/>
         </MessageContainer>
-        <form className='chats-container__main--bottom-container'>
+      </div>
+      <form className='chats-container__footer'>
           <div className='emojis'>
           <img className='smiley-face' src={smileyFace} alt='smiley-face icon'/>
           </div>
@@ -92,8 +98,7 @@ const Chat = () => {
               alt={inputValue !== '' ? 'Send icon' : 'Microphone icon'}
             />
           </button>
-        </form>
-      </div>
+      </form>
     </div>
   )
 }

@@ -4,9 +4,9 @@ import './styles.scss'
 
 const MessageContainer = ({ children }) => {
   return (<>
-    <div className='chats-container__main--wallpaper-container'>
-        <img src={wallpaper} alt='wallpaper image' />
-        {children}
+    <div className='messages-container'>
+      <img src={wallpaper} alt='wallpaper image' />
+      {children}
     </div>
   </>)
 }
