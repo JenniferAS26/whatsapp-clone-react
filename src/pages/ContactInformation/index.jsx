@@ -25,7 +25,7 @@ const ContactInformation = () => {
   const data = location.state
   const navigate = useNavigate()
 
-  localStorage.setItem('contactData', JSON.stringify(data))
+  
   const contactData = JSON.parse(localStorage.getItem('contactData'))
 
   const goToUpdateContact = (id) => {

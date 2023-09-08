@@ -1,7 +1,7 @@
 import React, { useContext } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { UserContext } from '../../Context'
-import { BiCheckDouble } from 'react-icons/bi'
+import { MdOutlineDoneAll } from 'react-icons/md'
 import './styles.scss'
 
 
@@ -13,6 +13,7 @@ const ChatCard = (data) => {
     context.setContactToShow([...context.contactToShow, contactDetail])
     navigate(`/chat/${contactDetail.contactId}`, {state: contactDetail}  
     )
+    localStorage.setItem('contactData', JSON.stringify(contactDetail))
   }
 
   /** Date format */
@@ -31,7 +32,7 @@ const ChatCard = (data) => {
       <p className='title'>{data.data.contactName}</p>
       <p className='last-message'>{data.data.lastMessage}</p>
       <span className='double-check'>
-        <BiCheckDouble/>
+        <MdOutlineDoneAll/>
       </span>
       <span className='connection'>{formatedDate}</span>
     </div>
