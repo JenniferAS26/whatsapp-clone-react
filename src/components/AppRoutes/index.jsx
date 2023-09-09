@@ -12,23 +12,9 @@ import NewContact from '@pages/NewContact'
 import Profile from '@pages/Profile'
 import StatusContainer from '@components/StatusContainer'
 import CallsContainer from '@components/CallsContainer'
-import Layout from '../Layout'
+import Layout from '@components/Layout'
 
 const AppRoutes = () => {
-  // let routes = useRoutes([
-  //   { path: '/', element: <WelcomenView/> },
-  //   { path: '/sign-in', element: <SigninForm/> },
-  //   { path: '/sign-up', element: <SignupForm/> },
-  //   { path: '/home', element: <Home/> },
-  //   { path: '/chat/:id', element: <Chat/> },
-  //   { path: '/contact-info/:id', element: <ContactInformation/> },
-  //   { path: '/edit-contact/:id', element: <UpdateContactInformationForm/> },
-  //   { path: '/contact-list', element: <ContactList/> },
-  //   { path: '/new-contact', element: <NewContact/> },
-  //   { path: '/profile', element: <Profile/> },
-  //   { path: '/search', element: <StatusContainer/> },
-  // ])
-  // return routes
   return (
     <Routes>
       <Route index element={<WelcomeView />} />

@@ -6,7 +6,8 @@ import SearchContact from '@components/SearchContact'
 const Layout = () => {
   const [showHeader, setShowHeader] = useState(true)
   const [contacts, setContacts] = useState([])
-  const [search, setSearch] = useState('')
+  const [filteredContacts, setFilteredContacts] = useState([])
+  // const [search, setSearch] = useState('')
 
   localStorage.setItem('userContacts', JSON.stringify(contacts))
   
@@ -21,10 +22,13 @@ const Layout = () => {
     setShowHeader(!showHeader)
   }
 
-  const handleChange = (value) => {
-    setSearch(value)
-    const filteredContacts = contacts.filter(contact => contact.contactName.toLowerCase().includes(value.toLowerCase()) || contact.contactPhoneNumber.includes(value))
-    setContacts(filteredContacts)
+  const handleChange = (filterText) => {
+    // setSearch(value)
+    // const filteredContacts = contacts.filter(contact => contact.contactName.toLowerCase().includes(value.toLowerCase()) || contact.contactPhoneNumber.includes(value))
+    // setContacts(filteredContacts)
+    const filtered = contacts.filter(contact => contact.contactName.toLowerCase().includes(filterText.toLowerCase()) || contact.contactPhoneNumber.includes(filterText))
+    setFilteredContacts(filtered)
+    console.log(filtered)
   }
 
   return (<>
@@ -32,7 +36,7 @@ const Layout = () => {
         showHeader ? (<Header onButtonClick={toggleComponent} />)
         : (<SearchContact onButtonClick={toggleComponent} onSearch={handleChange} />)
       }
-    <Outlet />
+    <Outlet filteredContacts={filteredContacts} />
   </>)
 }
 
