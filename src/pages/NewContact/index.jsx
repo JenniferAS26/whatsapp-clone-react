@@ -51,7 +51,8 @@ const NewContact = () => {
         contactId: userContacts.length + 1,
         contactName: contactInfo.contactName,
         contactPhoneNumber: contactInfo.contactPhoneNumber,
-        contactPhoto: imageUrl
+        contactPhoto: imageUrl,
+        dateMessage: Date()
       }
       await createData('chats', newContact)
       const userConfirmDeletion = await Swal.fire({
