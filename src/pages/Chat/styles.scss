@@ -57,6 +57,10 @@ $message-text-color: #707980;
   &__main {
     @include containerStyle(100%, 711px, 0, 0);
     position: relative;
+    overflow-y: scroll;
+    &::-webkit-scrollbar {
+      display: none;
+    }
   }
   &__footer {
     position: absolute;

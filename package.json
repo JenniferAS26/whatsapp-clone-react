@@ -57,6 +57,7 @@
     "react-hook-form": "^7.45.4",
     "react-icons": "^4.10.1",
     "react-router-dom": "^6.15.0",
-    "sweetalert2": "^11.7.27"
+    "sweetalert2": "^11.7.27",
+    "uuid": "^9.0.0"
   }
 }

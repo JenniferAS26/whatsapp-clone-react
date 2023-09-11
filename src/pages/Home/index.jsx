@@ -4,6 +4,7 @@ import ChatCard from '@components/ChatCard'
 
 const Home = ({ filteredContacts }) => {
   const [contacts, setContacts] = useState([])
+  const [messages, setMessages] = useState([])
 
   localStorage.setItem('userContacts', JSON.stringify(contacts))
   
@@ -20,7 +21,7 @@ const Home = ({ filteredContacts }) => {
       <ChatContainer contacts={filteredContacts}>
         {
           contacts.map(contact => (
-            <ChatCard key={contact.contactId} data={contact}/>
+            <ChatCard key={contact.id} data={contact}/>
           ))
         }
       </ChatContainer>

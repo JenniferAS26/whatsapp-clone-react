@@ -3,12 +3,14 @@
   width: 100%;
   height: inherit;
   display: grid;
-  grid-template-columns: repeat(2, calc(411px / 2));
-  grid-template-rows: auto;
-  grid-template-areas: "messages-in messages-out";
+  // grid-template-columns: repeat(2, calc(411px / 2));
+  // grid-template-rows: auto;
+  // grid-template-areas: "messages-in messages-out";
   align-items: center;
   background-color: transparent;
   z-index: 3;
+  gap: 25px;
+  padding-right: 10px;
   img {
     position: absolute;
     bottom: -60px;

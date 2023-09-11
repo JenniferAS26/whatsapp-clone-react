@@ -40,6 +40,10 @@ $links-color: rgb(101, 202, 241);
     justify-self: flex-start;
     align-self: flex-end;
     margin: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 200px;
+    white-space: nowrap;
   }
   .connection {
     font-size: 1rem;

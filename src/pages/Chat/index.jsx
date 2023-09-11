@@ -1,6 +1,8 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { useLocation, useNavigate } from 'react-router-dom'
 import { Link } from 'react-router-dom'
+import axios from 'axios'
+import { createData, updateData } from '@utils/api.js'
 import ChatMessages from '@components/ChatMessages'
 import Dropdown from 'react-bootstrap/Dropdown'
 import smileyFace from '@icons/smiley-face.png'
@@ -13,6 +15,7 @@ import camera from '@icons/camera.png'
 import voiceNote from '@icons/voice-note.png'
 import sendMessage from '@icons/send.png'
 import MessageContainer from '@components/MessageContainer'
+import { v4 as uuid } from 'uuid'
 import './styles.scss'
 
 const Chat = () => {   
@@ -21,6 +24,32 @@ const Chat = () => {
   const navigate = useNavigate()
   const [inputValue, setInputValue] = useState('')
   const [sendIconSrc, setSendIconSrc] = useState(voiceNote)
+
+  const contactData = JSON.parse(localStorage.getItem('contactData'))
+  const currentId = JSON.parse(localStorage.getItem('currentId'))
+
+  const [messages, setMessages] = useState([])
+  
+  const fetchMessages = async () => {
+    try {
+      const response = await axios.get(`https://whatsapp-clone-sprint-db.up.railway.app/messages?userId=${contactData.userId}&contactId=${contactData.contactId}`)
+      setMessages(response.data)
+    } catch (error) {
+      console.error(error.response)
+    }
+  }
+
+  useEffect(() => {
+    const fetchMessages = async () => {
+      try {
+        const response = await axios.get(`https://whatsapp-clone-sprint-db.up.railway.app/messages?userId=${contactData.userId}&contactId=${contactData.contactId}`)
+        setMessages(response.data)
+      } catch (error) {
+        console.error(error.response)
+      }
+    }
+    fetchMessages()
+  }, [contactData.userId, contactData.contactId])
   
   const handleInputChange = event => {
     const value = event.target.value
@@ -36,6 +65,25 @@ const Chat = () => {
   const contactDetail = (id) => {
     navigate(`/contact-info/${id}`, {state: data})
   }
+
+  const handleSubmit = async event => {
+    event.preventDefault()
+    const data = {
+      userId: currentId,
+      contactId: contactData.contactId,
+      messages: [
+        {
+          message: inputValue,
+          type: 'sent', 
+          dateTime: Date()
+        }
+      ],
+      id: uuid()
+    }
+    await createData('messages', data)
+    await updateData('chats', contactData.id, { lastMessage: inputValue})
+    fetchMessages()
+  }  
 
   return (
     <div id={data.id} className='chats-container'>
@@ -69,23 +117,24 @@ const Chat = () => {
       </div>
       <div className='chats-container__main'>
         <MessageContainer>
-          <ChatMessages/>
-          <ChatMessages/>
-          <ChatMessages/>
-          <ChatMessages/>
-          <ChatMessages/>
-          <ChatMessages/>
+          {
+            messages.map((message, index) => (
+              <ChatMessages key={index} message={message} />
+            ))
+            }
         </MessageContainer>
       </div>
-      <form className='chats-container__footer'>
+      <form className='chats-container__footer' onSubmit={handleSubmit} >
           <div className='emojis'>
           <img className='smiley-face' src={smileyFace} alt='smiley-face icon'/>
           </div>
           <input 
+            onChange={handleInputChange}
             className='input-message' 
             type='text' 
             placeholder='Type a message' 
-            onChange={handleInputChange} 
+            // {...register('message')} 
+            name='message'
           />
           <div className='icons'>
             <img className='clip-icon' src={clip} alt='clip icon'/>

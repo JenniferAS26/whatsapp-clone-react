@@ -1,14 +1,14 @@
 import React from 'react'
 import './styles.scss'
 
-const ChatMessages = () => {
+const ChatMessages = ({ message }) => {
+
   return (<>
-    <div className='message-container-out'>
-      <div className='message'>Mensaje dummy</div>
-    </div>
-    <div className='message-container-in'>
-      <div className='message'>Mensaje dummy</div>
-    </div>
+    {
+      <div className='message-container-out'>
+        <div className='message'>{message?.messages[0].message}</div>
+      </div>
+    }
   </>)
 }
 

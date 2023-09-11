@@ -5,7 +5,7 @@ import './styles.scss'
 const MessageContainer = ({ children }) => {
   return (<>
     <div className='messages-container'>
-      <img src={wallpaper} alt='wallpaper image' />
+      {/* <img src={wallpaper} alt='wallpaper image' /> */}
       {children}
     </div>
   </>)
