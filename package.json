@@ -17,7 +17,7 @@
   "bugs": {
     "url": "https://github.com/JenniferAS26/whatsapp-clone-react/issues"
   },
-  "homepage": "https://github.com/JenniferAS26/whatsapp-clone-react#readme",
+  "homepage": "https://github.com/JenniferAS26/whatsapp-clone-react/",
   "devDependencies": {
     "@babel/core": "^7.22.11",
     "@babel/plugin-transform-runtime": "^7.22.10",
