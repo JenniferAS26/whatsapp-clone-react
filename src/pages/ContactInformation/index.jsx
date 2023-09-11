@@ -16,7 +16,7 @@ import {
   FaFire, FaStar, 
   FaTrashAlt, FaLockOpen 
 } from 'react-icons/fa'
-import { ImSearch, ImImage } from 'react-icons/Im'
+import { ImSearch, ImImage } from 'react-icons/im'
 import { PiClockCountdownFill } from 'react-icons/pi'
 import './styles.scss'
 
