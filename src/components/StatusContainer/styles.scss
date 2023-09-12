@@ -1,6 +1,8 @@
 @use 'variables' as *;
 @use 'mixins' as *;
 
+$status-color: #2ec452;
+
 .status-container {
   @include containerStyle(100%, 100%, 0, 0);
   &__main {
@@ -21,7 +23,7 @@
         &--image-container {
           width: 55px;
           height: 55px;
-          border: 2px solid $primary-text-color;
+          border: 2px solid $status-color;
           border-radius: 50%;
           @include flexCenter(row, center, center);
           img {

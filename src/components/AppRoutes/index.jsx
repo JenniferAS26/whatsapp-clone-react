@@ -13,6 +13,7 @@ import Profile from '@pages/Profile'
 import StatusContainer from '@components/StatusContainer'
 import CallsContainer from '@components/CallsContainer'
 import Layout from '@components/Layout'
+import SendAPicture from '@pages/SendAPicture'
 
 const AppRoutes = () => {
   return (
@@ -31,6 +32,7 @@ const AppRoutes = () => {
       <Route path='contact-list' element={<ContactList/>} />
       <Route path='new-contact' element={<NewContact/>} />
       <Route path='profile' element={<Profile/>} />
+      <Route path='send-picture' element={<SendAPicture/>} />
     </Routes>
   )
 }

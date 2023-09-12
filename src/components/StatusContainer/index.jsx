@@ -27,28 +27,28 @@ const StatusContainer = () => {
           <h3 className='recent-updates__title'>Recent updates</h3>
           <div className='recent-updates__card'>
             <div className='recent-updates__card--image-container'>
-              <img src={userContacts[0].contactPhoto} alt='profile picture' />
+              <img src={userContacts[0]?.contactPhoto} alt='profile picture' />
             </div>
             <div className='recent-updates__card--info-container'>
-              <h3 className='title'>{userContacts[0].contactName}</h3>
+              <h3 className='title'>{userContacts[0]?.contactName}</h3>
               <p className='date-info'>30 minutes ago</p>
             </div>
           </div>
           <div className='recent-updates__card'>
             <div className='recent-updates__card--image-container'>
-              <img src={userContacts[1].contactPhoto} alt='profile picture' />
+              <img src={userContacts[1]?.contactPhoto} alt='profile picture' />
             </div>
             <div className='recent-updates__card--info-container'>
-              <h3 className='title'>{userContacts[1].contactName}</h3>
+              <h3 className='title'>{userContacts[1]?.contactName}</h3>
               <p className='date-info'>30 minutes ago</p>
             </div>
           </div>
           <div className='recent-updates__card'>
             <div className='recent-updates__card--image-container'>
-              <img src={userContacts[2].contactPhoto} alt='profile picture' />
+              <img src={userContacts[2]?.contactPhoto} alt='profile picture' />
             </div>
             <div className='recent-updates__card--info-container'>
-              <h3 className='title'>{userContacts[2].contactName}</h3>
+              <h3 className='title'>{userContacts[2]?.contactName}</h3>
               <p className='date-info'>30 minutes ago</p>
             </div>
           </div>
@@ -57,28 +57,28 @@ const StatusContainer = () => {
           <h3 className='viewed-updates__title'>Viewed updates</h3>
           <div className='viewed-updates__card'>
             <div className='viewed-updates__card--image-container'>
-              <img src={userContacts[3].contactPhoto} alt='profile picture' />
+              <img src={userContacts[3]?.contactPhoto} alt='profile picture' />
             </div>
             <div className='viewed-updates__card--info-container'>
-              <h3 className='title'>{userContacts[3].contactName}</h3>
+              <h3 className='title'>{userContacts[3]?.contactName}</h3>
               <p className='date-info'>30 minutes ago</p>
             </div>
           </div>
           <div className='viewed-updates__card'>
             <div className='viewed-updates__card--image-container'>
-              <img src={userContacts[4].contactPhoto} alt='profile picture' />
+              <img src={userContacts[4]?.contactPhoto} alt='profile picture' />
             </div>
             <div className='viewed-updates__card--info-container'>
-              <h3 className='title'>{userContacts[4].contactName}</h3>
+              <h3 className='title'>{userContacts[4]?.contactName}</h3>
               <p className='date-info'>30 minutes ago</p>
             </div>
           </div>
           <div className='viewed-updates__card'>
             <div className='viewed-updates__card--image-container'>
-              <img src={userContacts[5].contactPhoto} alt='profile picture' />
+              <img src={userContacts[5]?.contactPhoto} alt='profile picture' />
             </div>
             <div className='viewed-updates__card--info-container'>
-              <h3 className='title'>{userContacts[5].contactName}</h3>
+              <h3 className='title'>{userContacts[5]?.contactName}</h3>
               <p className='date-info'>30 minutes ago</p>
             </div>
           </div>

@@ -53,6 +53,14 @@ const deleteData = async (endpoint, id) => {
   }
 }
 
+const deleteDataByQueryParams = async (endpoint, params) => {
+  try {
+    await axios.patch(`${BASE_URL}/${endpoint}`, { params: params })
+  } catch (error) {
+    console.log(error)
+  }
+}
+
 const saveImage = async file => {
   const body = {
     file,
@@ -73,5 +81,6 @@ export {
   updateData, 
   updateDataByQueryParams,
   deleteData, 
+  deleteDataByQueryParams,
   saveImage,
 }
