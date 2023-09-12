@@ -25,11 +25,19 @@ $modal-color: #363d42;
     .form {
       @include formStyle;
       .profile-picture-wrapper {
-        width: 320px;
-        height: 200px;
+        width: 140px;
+        height: 140px;
         padding: 20px;
-        border-radius: 5px;
-        border: 2px dashed rgba($color: $tertiary-color, $alpha: 0.3);
+        border-radius: 50%;
+        position: relative;
+        background-color: transparent;
+        z-index: 3;
+        .camera-icon {
+          position: absolute;
+          bottom: -10px;
+          right: -10px;
+          z-index: 4;
+        }
       }
       &__profile-picture {
         width: 100%;
@@ -43,11 +51,16 @@ $modal-color: #363d42;
           display: flex;
           justify-content: center;
           align-items: center;
+          z-index: 0;
+          position: relative;
           img {
-            width: 120px;
-            height: 120px;
+            width: 140px;
+            height: 140px;
             object-fit: cover;
             border-radius: 50%;
+            position: absolute;
+            top: calc(60px / 4 - 26px);
+            right: calc(60px / 4 - 36px);
           }
         }
         &--input-container {

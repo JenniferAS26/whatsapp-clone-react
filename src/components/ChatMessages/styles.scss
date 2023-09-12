@@ -5,35 +5,29 @@ $message-out-color: #195344;
 $message-in-color: #202C33;
 
 .message-container-out {
+  cursor: pointer;
   width: 70%;
   height: auto;
   background-color: $message-out-color;
   z-index: 4;
-  // position: absolute;
-  // right: 20px;
-  // bottom: 0;
   border-radius: 9px;
   display: grid;
-  align-items: center;
+  align-self: flex-end;
   padding: 5px;
-  // grid-area: messages-out;
   justify-self: flex-end;
 }
 
-// .message-container-in {
-//   width: 70%;
-//   height: auto;
-//   background-color: $message-in-color;
-//   z-index: 4;
-//   position: absolute;
-//   left: 20px;
-//   bottom: 50px;
-//   border-radius: 9px;
-//   display: grid;
-//   align-items: center;
-//   padding: 5px;
-//   grid-area: messages-in;
-// }
+.message-container-in {
+  cursor: pointer;
+  width: 70%;
+  height: auto;
+  background-color: $message-in-color;
+  z-index: 4;
+  border-radius: 9px;
+  display: grid;
+  align-self: flex-start;
+  padding: 5px;
+}
 
 .message {
   display: grid;

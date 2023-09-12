@@ -15,6 +15,7 @@ import camera from '@icons/camera.png'
 import voiceNote from '@icons/voice-note.png'
 import sendMessage from '@icons/send.png'
 import MessageContainer from '@components/MessageContainer'
+import wallpaper from '@images/wallpaper2.jpg'
 import { v4 as uuid } from 'uuid'
 import './styles.scss'
 
@@ -54,7 +55,7 @@ const Chat = () => {
   const handleInputChange = event => {
     const value = event.target.value
     setInputValue(value)
-
+    
     if (value !== '') {
       setSendIconSrc(sendMessage)
     } else {
@@ -80,9 +81,11 @@ const Chat = () => {
       ],
       id: uuid()
     }
+
     await createData('messages', data)
-    await updateData('chats', contactData.id, { lastMessage: inputValue})
+    await updateData('chats', contactData.id, { lastMessage: inputValue })
     fetchMessages()
+    setInputValue('')
   }  
 
   return (
@@ -116,6 +119,7 @@ const Chat = () => {
         </div>
       </div>
       <div className='chats-container__main'>
+        <img className='wallpaper-img' src={wallpaper} alt='wallpaper' />
         <MessageContainer>
           {
             messages.map((message, index) => (
@@ -133,12 +137,13 @@ const Chat = () => {
             className='input-message' 
             type='text' 
             placeholder='Type a message' 
-            // {...register('message')} 
             name='message'
+            autoComplete='off'
+            value={inputValue}
           />
           <div className='icons'>
             <img className='clip-icon' src={clip} alt='clip icon'/>
-            <img className='camera-icon' src={camera} alt='camera icon'/>
+            <Link to='/send-picture'><img className='camera-icon' src={camera} alt='camera icon'/></Link>
           </div>
           <button className='send-message-button'>
             <img 

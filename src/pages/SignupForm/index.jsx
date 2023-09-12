@@ -4,6 +4,7 @@ import { Link, useNavigate } from 'react-router-dom'
 import { createData, getDataByQueryParams, saveImage } from '@utils/api.js'
 import Swal from 'sweetalert2'
 import silhouette from '@images/user-silhouette.jpg'
+import takeAPicture from '@icons/take-a-picture.png'
 import { FaChevronLeft } from 'react-icons/fa'
 import './styles.scss'
 
@@ -81,6 +82,7 @@ const SignupForm = () => {
           onSubmit={handleSubmit(onSubmit)}
         >
           <div className="profile-picture-wrapper">
+            <img className='camera-icon' src={takeAPicture} alt="camera icon" />
             <div className="form__profile-picture">
               <figure className="form__profile-picture--image-container" name="avatar">
                 <img className="current-picture" src={imagePreview} alt="dummy image" />
